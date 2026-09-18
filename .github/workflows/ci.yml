@@ -12,7 +12,7 @@ jobs:
   bats:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - run: ./scripts/run-tests.sh
 
   # Parse coverage for every scripts/*.ps1. report.ps1 shipped a ParserError
@@ -26,7 +26,7 @@ jobs:
   pwsh-parse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       # Fail loudly if the preinstalled-pwsh assumption ever stops holding,
       # rather than let the harness below quietly fall back to Docker.
       - run: pwsh --version
@@ -36,7 +36,7 @@ jobs:
   pwsh-exec-delta:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - run: pwsh --version
       - name: Execute delta.ps1 against fake binaries
         run: ./tests/pwsh/exec-delta-ps1.sh
@@ -50,7 +50,7 @@ jobs:
   m3-local-contracts:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - name: Linux composite-equivalent policy and output matrix
         run: ./tests/e2e/local-composite-equivalent.sh
       - name: Independently copy and validate README candidate
@@ -80,7 +80,7 @@ jobs:
           - { case: tool-error, exit: 3, report: 'true', warn: 'true', no_surface: 'false', fail_empty: 'false', expected: failure, valid: 'false' }
           - { case: unknown, exit: 42, report: 'true', warn: 'true', no_surface: 'false', fail_empty: 'false', expected: failure, valid: 'false' }
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - name: Substitute deterministic detector installation
         shell: bash
         run: |
@@ -143,7 +143,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - id: clean
         uses: ./
         with:
@@ -237,7 +237,7 @@ jobs:
   e2e-gate-defaults:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - name: Install the engine version action.yml pins
         run: |
           set -euo pipefail
@@ -262,7 +262,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: ./
         with:
           path: tests/fixtures/clean-repo
@@ -284,7 +284,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - id: action
         continue-on-error: true
         uses: ./
@@ -308,7 +308,7 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: ./
         with:
           path: tests/fixtures/malicious-repo
@@ -339,7 +339,7 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
       - id: action
@@ -387,7 +387,7 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       # Precondition, not decoration: the post-run assertion is "the body
       # changed", which proves nothing unless we know what it changed from.
