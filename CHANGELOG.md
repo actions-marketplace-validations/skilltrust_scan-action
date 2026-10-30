@@ -1,5 +1,53 @@
 # Changelog
 
+## [1.15.0] — 2026-09-28
+
+- Default detector moves from v0.12.1 to v0.13.0. SD-027 inventories
+  command-valued settings in bounded nested bare Git config without running
+  Git or configured commands. It reports an unverified runtime condition, not
+  confirmed execution or CVE exposure. Invalid or unsupported config and
+  symlink markers fail without grades. High findings can fail opt-in High or
+  security-axis gates; the default Critical gate does not change. Input/output
+  names, JSON 1.5 and exit-code mapping remain unchanged.
+
+## [1.14.1] — 2026-09-28
+
+- Stop publishing internal status and release-readiness documents. Keep them
+  in the private workspace snapshot instead. Repair public documentation links
+  and reword report diagnostics without changing scan or gate behavior.
+
+## [1.14.0] — 2026-09-28
+
+- Default detector moves from v0.12.0 to v0.12.1. Copilot diagnostics now
+  distinguish documented version and source conditions, including supported
+  custom-agent MCP commands; newly checked commands can change findings and
+  grades. Missing launch context or plugin origin remains unresolved rather
+  than proof of effective runtime behavior. The Action supplies no such runtime
+  context. Input/output names, JSON schema and gate defaults are unchanged.
+
+## [1.13.0] — 2026-09-27
+
+- Default detector moves from v0.11.0 to v0.12.0. Repository Copilot hooks,
+  recursive path instructions, root custom-agent profiles and authoritative
+  inline hook settings now enter the scanner. Inert credential reads can lower
+  grades or fail the existing gate; malformed analyzed hook/frontmatter input
+  fails without grades. Folder trust, path/agent selection and hook activation
+  remain unknown. No Action input/output, JSON schema or gate default changes.
+
+## [1.12.0] — 2026-09-22
+
+- Default detector moves from v0.10.0 to v0.11.0. Codex TOML MCP, approval
+  and sandbox declarations are analyzed; SD-026 flags unrestricted sandboxes.
+  Declaration-only warnings remain visible in Summary and PR reports, including
+  zero-finding scans. Malformed/unsupported analyzed configs and overflowing
+  timeouts fail without successful outputs, even with report-only enabled.
+- This grade-changing engine update also detects reads of npm/Codex credential
+  stores (ST-126) and permits bounded emoji presentation selectors before ZWJ.
+  JSON 1.5, Action outputs and gate defaults remain unchanged.
+- Add real Codex composite checks on Linux, macOS and Windows. Keep SD-026
+  unlinked until its hosted rule page is published; rule-link allowlisting is
+  independent of the engine version.
+
 ## [1.11.0] — 2026-09-17
 
 - Source telemetry visibility from event repository metadata on both OS paths.
